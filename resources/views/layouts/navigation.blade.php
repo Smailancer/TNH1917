@@ -17,8 +17,8 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('The Story')">
-                        {{ __('The Story') }}
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Before the 7th October')">
+                        {{ __('Before the 7th October') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -32,8 +32,8 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Fallacies')">
-                        {{ __('Fallacies ') }}
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Fallacies and Abuses')">
+                        {{ __('Fallacies and Abuses ') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -84,7 +84,7 @@
                 </x-dropdown>
             </div>
 
-
+@endauth
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
@@ -104,7 +104,7 @@
                 {{ __('Vote') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('The Story') }}
+                {{ __('Before the 7th October') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Numbers') }}
@@ -113,7 +113,7 @@
                 {{ __('Not Numbers') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Fallecies') }}
+                {{ __('Fallacies and Abuses') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Discussion') }}
@@ -122,6 +122,8 @@
                 {{ __('DUN') }}
             </x-responsive-nav-link>
         </div>
+@auth
+
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
@@ -144,7 +146,8 @@
             </div>
         </div>
     </div>
-    @else
+
+    @endauth
     <div class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
 
         <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
@@ -153,7 +156,6 @@
         <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
         @endif
     </div>
-@endauth
 
 </nav>
 
