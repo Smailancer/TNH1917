@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Option;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,5 +21,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        Option::create(['name' => 'Option 1']);
+        Option::create(['name' => 'Option 2']);
+        Option::create(['name' => 'Option 3']);
+        Option::create(['name' => 'Option 4']);
+
     }
 }

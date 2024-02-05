@@ -23,7 +23,7 @@ class CountriesSeeder extends Seeder
         foreach ($data as $item) {
             DB::table('countries')->insert([
                 'name' => $item->name,
-                'code' => $item->code,
+                'code' => strtolower($item->code),
             ]);
         }
     }

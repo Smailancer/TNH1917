@@ -43,4 +43,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+            public function hasVoted()
+        {
+            return $this->votes()->exists();
+        }
+
+        // Replace this relationship in the User model
+        public function votes()
+        {
+            return $this->hasOne(Vote::class); // Change hasMany to hasOne
+        }
 }

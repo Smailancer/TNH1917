@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -16,8 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('country_id')->constrained('countries');
             $table->decimal('percentage', 5, 2);
-            $table->json('ways');
             $table->text('notes')->nullable();
+            $table->unique(['user_id', 'country_id']);
+
             $table->timestamps();
         });
     }

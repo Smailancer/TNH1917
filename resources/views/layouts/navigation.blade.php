@@ -1,48 +1,48 @@
- <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}" class="text-gray-800 text-2xl font-bold">
+                    <a href="{{ route('/') }}" class="text-gray-800 text-2xl font-bold">
                         <h1 class="block h-9 w-auto fill-current">TNH 1917</h1>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('/')" :active="request()->routeIs('/')">
                         {{ __('Vote') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Before the 7th October')">
+                    <x-nav-link :href="route('story')" :active="request()->routeIs('story')">
                         {{ __('Before the 7th October') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Numbers')">
+                    <x-nav-link :href="route('numbers')" :active="request()->routeIs('numbers')">
                         {{ __('Numbers') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Not Numbers')">
+                    <x-nav-link :href="route('not_numbers')" :active="request()->routeIs('not_numbers')">
                         {{ __('Not Numbers') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Fallacies and Abuses')">
-                        {{ __('Fallacies and Abuses ') }}
+                    <x-nav-link :href="route('fallacies')" :active="request()->routeIs('fallacies')">
+                        {{ __('F & F ') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Discussion')">
-                        {{ __('Discussion') }}
+                    <x-nav-link :href="route('discussions')" :active="request()->routeIs('discussions')">
+                        {{ __('Discussions') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('DUN')">
+                    <x-nav-link :href="route('DUN')" :active="request()->routeIs('DUN')">
                         {{ __('DUN') }}
                     </x-nav-link>
                 </div>
@@ -51,25 +51,34 @@
             <!-- Settings Dropdown -->
             @auth
 
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+
+            <div class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ ucwords(Auth::user()->username) }}</div>
+                            <img class="h-10 w-8 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/8/87/Gws_balfour_02.jpg" alt="">
+
+                            {{-- <div>{{ ucwords(Auth::user()->username) }}</div> --}}
 
                             <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
+
                             </div>
                         </button>
                     </x-slot>
 
                     <x-slot name="content">
+
+                        @if(auth()->user()->hasVoted())
+                        <x-dropdown-link :href="route('votes.show', ['vote' => auth()->user()->votes])">
+                            {{ __('My Vote') }}
+                        </x-dropdown-link>
+                    @endif
+
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
-
+<hr>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -83,8 +92,17 @@
                     </x-slot>
                 </x-dropdown>
             </div>
+            @else
+            <div class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
 
-@endauth
+                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                @endif
+            </div>
+            @endauth
+
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
@@ -100,28 +118,29 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('/')" :active="request()->routeIs('/')">
                 {{ __('Vote') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('story')" :active="request()->routeIs('story')">
                 {{ __('Before the 7th October') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('numbers')" :active="request()->routeIs('numbers')">
                 {{ __('Numbers') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('not_numbers')" :active="request()->routeIs('not_numbers')">
                 {{ __('Not Numbers') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Fallacies and Abuses') }}
+            <x-responsive-nav-link :href="route('fallacies')" :active="request()->routeIs('fallacies')">
+                {{ __('F & F') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Discussion') }}
+            <x-responsive-nav-link :href="route('discussions')" :active="request()->routeIs('discussions')">
+                {{ __('Discussions') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('DUN')" :active="request()->routeIs('DUN')">
                 {{ __('DUN') }}
             </x-responsive-nav-link>
         </div>
+
 @auth
 
 
@@ -147,16 +166,8 @@
         </div>
     </div>
 
+
     @endauth
-    <div class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-
-        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
-        @if (Route::has('register'))
-        <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-        @endif
-    </div>
-
 </nav>
 
 
