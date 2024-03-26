@@ -8,6 +8,8 @@ use App\Models\Option;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class VoteController extends Controller
 {
@@ -22,6 +24,12 @@ class VoteController extends Controller
     return view('votes.show', compact('vote'));
 }
 
+//     public function resultes()
+// {
+
+//     return view('votes.resultes');
+// }
+
 
     public function create()
     {
@@ -34,7 +42,10 @@ class VoteController extends Controller
     public function store(Request $request)
     {
         if (!auth()->check()) {
-            return redirect()->route('login')->withErrors('You must be logged in to vote.');
+            return redirect()->route('login')->with([
+                'message' => 'You must be a balfour to vote, log in to be one of them.',
+                'messageType' => 'error'
+            ]);
         }
 
         $validated = $request->validate([
@@ -45,8 +56,12 @@ class VoteController extends Controller
         ]);
 
         if (auth()->user()->hasVoted()) {
-            return redirect()->back()->withErrors('You have already voted. You cannot vote again, check your vote detaills here ');
+            return redirect()->back()->with([
+                'message' => 'You have already voted. You cannot vote again, check your vote details in you profile.',
+                'messageType' => 'info' // Ensure this matches the types your component expects
+            ]);
         }
+
 
         $vote = new Vote([
             'user_id' => auth()->id(),
@@ -60,7 +75,10 @@ class VoteController extends Controller
         // Attach selected options to the vote
         $vote->options()->attach($validated['options']);
 
-        return redirect()->back()->withSuccess('Vote submitted successfully!');
+        return redirect()->back()->with([
+            'message' => 'Your Vote has been submitted successfully!',
+            'messageType' => 'success' // Ensure this matches the types your component expects
+        ]);
     }
 
     /**
@@ -165,4 +183,18 @@ class VoteController extends Controller
         // Implement your logic here, e.g., check if the user owns the vote
         return auth()->user()->id === $vote->user_id;
     }
+
+
+    public function downloadPdf(Vote $vote)
+{
+    // Check if the user is authorized to download the vote details
+    if (!$this->canUserViewVote($vote)) {
+        return redirect()->back()->withErrors('You are not allowed to download this vote.');
+    }
+
+    // Load a view into PDF
+    $pdf = PDF::loadView('votes.pdf', compact('vote'));
+    return $pdf->download('vote-details-' . $vote->id . '.pdf');
+}
+
 }

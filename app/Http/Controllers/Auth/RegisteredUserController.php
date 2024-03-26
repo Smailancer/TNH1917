@@ -51,7 +51,8 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        Session::flash('success', 'Welcome to our platform , ' . $user->name . ' !' . ' You will find your new username in your profile' );
+        Session::flash('messageType', 'success');
+        Session::flash('message', 'Welcome to our platform, ' . $user->name . '! You will find your new username in your profile.');
 
         return redirect(RouteServiceProvider::HOME);
     }

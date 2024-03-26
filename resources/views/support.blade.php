@@ -15,7 +15,7 @@
         <p>Your support enables us to continue our work. Choose your preferred way to contribute:</p>
     </div>
 
-<!-- Direct Donations Section -->
+{{-- <!-- Direct Donations Section -->
 <div class="bg-gradient-to-b from-red-400 to-red-500 py-10 px-6 rounded-lg shadow-md text-center mb-6">
     <div class="flex flex-col items-center">
         <h2 class="text-2xl font-semibold text-white mb-4">Make a Direct Donation</h2>
@@ -47,11 +47,11 @@
 
         <p class="text-white text-sm">Your support is greatly appreciated. Thank you for making a difference!</p>
     </div>
-</div>
+</div> --}}
 
 
 <!-- Cryptocurrency Donations Section -->
-<div class="bg-gradient-to-b from-green-400 to-green-500 py-10 px-6 rounded-lg shadow-md text-center mb-6">
+<div x-data="{ copied: false, copiedText: '' }" class="bg-gradient-to-b from-stone-400 to-stone-500 py-10 px-6 rounded-lg shadow-md text-center mb-6">
     <div class="flex flex-col items-center">
         <h2 class="text-2xl font-semibold text-white mb-4">Support Us with Cryptocurrency</h2>
         <p class="text-lg text-white mb-4">Make a cryptocurrency donation to help us grow. Your support is highly appreciated!</p>
@@ -60,23 +60,50 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
             <!-- Bitcoin -->
             <div class="bg-white rounded-lg p-4">
-                <h3 class="text-xl font-semibold text-yellow-500 mb-2">Bitcoin (BTC)</h3>
-                <p class="text-gray-700">1H7aBhXhriXYZdjqGzN7z8T9MRSgX29GbJ</p>
-                <button class="text-yellow-500 hover:underline mt-4 copy-button">Copy Address</button>
+                <h3 class="text-xl font-semibold text-amber-500 mb-2">Bitcoin (BTC)</h3>
+                <p x-ref="btcAddress" class="text-gray-700 break-words">bc1qzh7vpg84gw9ggrx0gyd02cvyt95lxndr7aw8l6</p>
+                <img src="images/BTC.png" alt="Bitcoin QR Code" class="w-24 h-24 mx-auto mt-4">
+                <button @click="navigator.clipboard.writeText($refs.btcAddress.textContent).then(() => { copied = true; copiedText = 'BTC'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-amber-500 hover:underline mt-4" x-text="copied && copiedText === 'BTC' ? 'Copied to Clipboard' : 'Copy Address'"></button>
             </div>
 
             <!-- Ethereum -->
             <div class="bg-white rounded-lg p-4">
-                <h3 class="text-xl font-semibold text-blue-500 mb-2">Ethereum (ETH)</h3>
-                <p class="text-gray-700">0x3C2aFb75Bfe39E1723e41C71E6c21E1E2B84c689</p>
-                <button class="text-blue-500 hover:underline mt-4 copy-button">Copy Address</button>
+                <h3 class="text-xl font-semibold text-slate-400 mb-2">Ethereum (ETH)</h3>
+                <p x-ref="ethAddress" class="text-gray-700 break-words">0xAaec23D5c9BaDE604fA89201b83717bddcd87A95</p>
+                <img src="images/ETH.png" alt="Ethereum QR Code" class="w-24 h-24 mx-auto mt-4">
+                <button @click="navigator.clipboard.writeText($refs.ethAddress.textContent).then(() => { copied = true; copiedText = 'ETH'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-slate-400 hover:underline mt-4" x-text="copied && copiedText === 'ETH' ? 'Copied to Clipboard' : 'Copy Address'"></button>
+            </div>
+
+            <!-- USDT -->
+            <div class="bg-white rounded-lg p-4">
+                <h3 class="text-xl font-semibold text-cyan-500 mb-2">Tether USD (USDT)</h3>
+                <p x-ref="usdtAddress" class="text-gray-700 break-words">0xAaec23D5c9BaDE604fA89201b83717bddcd87A95</p>
+                <img src="images/USDT.png" alt="Tether USD QR Code" class="w-24 h-24 mx-auto mt-4">
+                <button @click="navigator.clipboard.writeText($refs.usdtAddress.textContent).then(() => { copied = true; copiedText = 'USDT'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-cyan-500 hover:underline mt-4" x-text="copied && copiedText === 'USDT' ? 'Copied to Clipboard' : 'Copy Address'"></button>
             </div>
 
             <!-- Litecoin -->
             <div class="bg-white rounded-lg p-4">
-                <h3 class="text-xl font-semibold text-silver-500 mb-2">Litecoin (LTC)</h3>
-                <p class="text-gray-700">LekN8wEUu5dzY4so7j8chjJQxuaFkUB6eW</p>
-                <button class="text-silver-500 hover:underline mt-4 copy-button">Copy Address</button>
+                <h3 class="text-xl font-semibold text-neutral-500 mb-2">Litecoin (LTC)</h3>
+                <p x-ref="ltcAddress" class="text-gray-700 break-words">Lgzv3kyfyLbNKnMXWTAgxeoDuszZMFJrjG</p>
+                <img src="images/LTC.png" alt="Litecoin QR Code" class="w-24 h-24 mx-auto mt-4">
+                <button @click="navigator.clipboard.writeText($refs.ltcAddress.textContent).then(() => { copied = true; copiedText = 'LTC'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-neutral-500 hover:underline mt-4" x-text="copied && copiedText === 'LTC' ? 'Copied to Clipboard' : 'Copy Address'"></button>
+            </div>
+
+            <!-- Solana -->
+            <div class="bg-white rounded-lg p-4">
+                <h3 class="text-xl font-semibold text-violet-500 mb-2">Solana (SOL)</h3>
+                <p x-ref="solAddress" class="text-gray-700 break-words">54bnNWWfayX9SVnTMGLyGWscLncMs19gBVavTvcnW3Me</p>
+                <img src="images/SOL.png" alt="Solana QR Code" class="w-24 h-24 mx-auto mt-4">
+                <button @click="navigator.clipboard.writeText($refs.solAddress.textContent).then(() => { copied = true; copiedText = 'SOL'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-violet-500 hover:underline mt-4" x-text="copied && copiedText === 'SOL' ? 'Copied to Clipboard' : 'Copy Address'"></button>
+            </div>
+
+            <!-- USD Coin -->
+            <div class="bg-white rounded-lg p-4">
+                <h3 class="text-xl font-semibold text-sky-500 mb-2">USD Coin (USDC)</h3>
+                <p x-ref="usdcAddress" class="text-gray-700 break-words">0xAaec23D5c9BaDE604fA89201b83717bddcd87A95</p>
+                <img src="images/USDC.png" alt="USD Coin QR Code" class="w-24 h-24 mx-auto mt-4">
+                <button @click="navigator.clipboard.writeText($refs.usdcAddress.textContent).then(() => { copied = true; copiedText = 'USDC'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-sky-500 hover:underline mt-4" x-text="copied && copiedText === 'USDC' ? 'Copied to Clipboard' : 'Copy Address'"></button>
             </div>
         </div>
 
@@ -85,6 +112,7 @@
 </div>
 
 
+{{--
 <!-- Membership/Subscriptions Section -->
 <div class="bg-gradient-to-b from-blue-400 to-blue-500 py-10 px-6 rounded-lg shadow-md text-center mb-6">
     <div class="flex flex-col items-center">
@@ -301,6 +329,6 @@
             </div>
         </form>
     </div>
-</div>
+</div> --}}
 
 </x-app-layout>

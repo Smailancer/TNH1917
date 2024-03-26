@@ -16,22 +16,90 @@ use App\Http\Controllers\NewsletterController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/Results', function () {
+    return view('votes\results');
+})->name('results');
 
 Route::get('/Story', function () {
-    return view('story');
+    return view('story/before');
 })->name('story');
 
-Route::get('/Numbers', function () {
-    return view('numbers');
-})->name('numbers');
+Route::get('/After', function () {
+    return view('story/after');
+})->name('after');
 
-Route::get('/Not_Numbers', function () {
-    return view('not numbers');
-})->name('not_numbers');
+
+
+
+
 
 Route::get('/Fallacies', function () {
-    return view('fallacies');
+    return view('fnf\fallacies');
 })->name('fallacies');
+
+Route::get('/Facts', function () {
+    return view('fnf\facts');
+})->name('facts');
+
+
+
+
+
+
+// Route::get('/Numbers', function () {
+//     return view('numbers');
+// })->name('numbers');
+
+
+Route::get('/Numbers', function () {
+    return view('numbers/geo');
+})->name('numbers');
+
+Route::get('/Politics', function () {
+    return view('numbers/politics');
+})->name('politics');
+
+Route::get('/Finance', function () {
+    return view('numbers/finance');
+})->name('finance');
+
+Route::get('/Media', function () {
+    return view('numbers/media');
+})->name('media');
+
+Route::get('/Army', function () {
+    return view('numbers/army');
+})->name('army');
+
+
+
+
+Route::get('/Humans', function () {
+    return view('humans/victims');
+})->name('humans');
+
+Route::get('/Injured', function () {
+    return view('humans/injured');
+})->name('injured');
+
+Route::get('/famine', function () {
+    return view('humans/famine');
+})->name('famine');
+
+Route::get('/Relatives', function () {
+    return view('humans/relatives');
+})->name('relatives');
+
+Route::get('/Displaced', function () {
+    return view('humans/displaced');
+})->name('displaced');
+
+
+
+
+
+
+
 
 Route::get('/Discussions', function () {
     return view('discussions');
@@ -45,9 +113,6 @@ Route::get('/Support', function () {
     return view('Support');
 })->name('Support');
 
-// Route::get('/vote', function () {
-//     return view('vote');
-// })->name('vote');
 
 // Route::get('/', function () {
 //     return view('vote');
@@ -69,8 +134,13 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/', [VoteController::class, 'create'])->name('/');
+
+// Route::get('/votes/resultes', [VoteController::class, 'create'])->name('votes.resultes');
+
 Route::post('/votes', [VoteController::class, 'store'])->name('votes.store');
 
 Route::post('/subscribe', [NewsletterController::class, 'store']);
+
+Route::get('/votes/{vote}/download', [VoteController::class, 'downloadPdf'])->name('votes.downloadPdf');
 
 require __DIR__.'/auth.php';

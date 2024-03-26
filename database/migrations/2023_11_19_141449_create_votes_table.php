@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('country_id')->constrained('countries');
             $table->decimal('percentage', 5, 2);
             $table->text('notes')->nullable();
+            $table->boolean('public_vote')->default(false); // New boolean field for public/private vote
             $table->unique(['user_id', 'country_id']);
 
             $table->timestamps();

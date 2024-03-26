@@ -18,7 +18,7 @@
         @method('patch')
 
         <div>
-            <x-input-label for="username" :value="__('Username')" />
+            <x-input-label for="username" :value="__('Your New Username')" />
             <x-text-input id="username" name="username" type="text" class="mt-1 block w-full bg-gray-200" :value="old('username', $user->username)" required autocomplete="username" readonly  disabled/>
             <x-input-error class="mt-2" :messages="$errors->get('username')" />
         </div>

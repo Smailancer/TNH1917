@@ -12,27 +12,27 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('/')" :active="request()->routeIs('/')">
+                    <x-nav-link :href="route('/')" :active="request()->routeIs(['/','Results'])">
                         {{ __('Vote') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('story')" :active="request()->routeIs('story')">
-                        {{ __('Before the 7th October') }}
+                    <x-nav-link :href="route('story')" :active="request()->routeIs(['story','after'])">
+                        {{ __('Events') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('numbers')" :active="request()->routeIs('numbers')">
+                    <x-nav-link :href="route('numbers')" :active="request()->routeIs(['numbers', 'politics','finance','media','army'])">
                         {{ __('Numbers') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('not_numbers')" :active="request()->routeIs('not_numbers')">
-                        {{ __('Not Numbers') }}
+                    <x-nav-link :href="route('humans')" :active="request()->routeIs(['humans','famine', 'injured','relatives','displaced'])">
+                        {{ __('Humans') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('fallacies')" :active="request()->routeIs('fallacies')">
+                    <x-nav-link :href="route('fallacies')" :active="request()->routeIs(['fallacies', 'facts'])">
                         {{ __('F & F ') }}
                     </x-nav-link>
                 </div>
@@ -118,17 +118,17 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('/')" :active="request()->routeIs('/')">
+            <x-responsive-nav-link :href="route('/')" :active="request()->routeIs(['/','Results'])">
                 {{ __('Vote') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('story')" :active="request()->routeIs('story')">
-                {{ __('Before the 7th October') }}
+            <x-responsive-nav-link :href="route('story')" :active="request()->routeIs(['story','after'])">
+                {{ __('The Story') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('numbers')" :active="request()->routeIs('numbers')">
+            <x-responsive-nav-link :href="route('numbers')" :active="request()->routeIs(['numbers', 'politics','finance','media','army'])">
                 {{ __('Numbers') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('not_numbers')" :active="request()->routeIs('not_numbers')">
-                {{ __('Not Numbers') }}
+            <x-responsive-nav-link :href="route('humans')" :active="request()->routeIs(['humans','injured','relatives','displaced'])">
+                {{ __('Humans') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('fallacies')" :active="request()->routeIs('fallacies')">
                 {{ __('F & F') }}

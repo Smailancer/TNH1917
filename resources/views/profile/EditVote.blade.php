@@ -1,4 +1,4 @@
-<x-app-layout>
+{{-- <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Edit Vote') }}
@@ -11,7 +11,7 @@
             <h5 class="text-xl font-bold dark:text-white pt-5">The New National Home</h5>
             <form method="POST" action="{{ route('vote.update', $vote->id) }}">
                 @csrf
-                @method('PUT') {{-- Use PUT method for updating --}}
+                @method('PUT')
 
                 <div class="my-5 gap-4 sm:grid-cols-2 sm:gap-6 w-full">
 
@@ -49,4 +49,4 @@
         </div>
     </section>
 
-</x-app-layout>
+</x-app-layout> --}}

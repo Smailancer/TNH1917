@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
 
+    @include('layouts.F&FNav')
 
 
     <div class="p-5 mb-4 border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
