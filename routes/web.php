@@ -52,16 +52,16 @@ Route::get('/Facts', function () {
 
 
 Route::get('/Numbers', function () {
-    return view('numbers/geo');
+    return view('numbers/support');
 })->name('numbers');
 
-Route::get('/Politics', function () {
-    return view('numbers/politics');
-})->name('politics');
+// Route::get('/Politics', function () {
+//     return view('numbers/politics');
+// })->name('politics');
 
-Route::get('/Finance', function () {
-    return view('numbers/finance');
-})->name('finance');
+Route::get('/Losses', function () {
+    return view('numbers/losses');
+})->name('losses');
 
 Route::get('/Media', function () {
     return view('numbers/media');

@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -20,14 +21,50 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $name = $this->faker->name();
+        $username = $this->generateUniqueUsername(); // Generate a unique username
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'name' => $name,
+            'username' => $username,
+            'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];
     }
+
+    /**
+     * Generate a unique username.
+     *
+     * @return string
+     */
+   private function generateUniqueUsername(): string
+    {
+        $prefix = 'Balfour_';
+
+        // Generate a random string of digits for the username
+        $randomDigits = '';
+        for ($i = 0; $i < 5; $i++) {
+            $randomDigits .= mt_rand(0, 9);
+        }
+
+        $username = $prefix . $randomDigits; // Concatenate the random digits to the prefix
+
+        // Check if the generated username already exists in the database
+        while (User::where('username', $username)->exists()) {
+            // Regenerate a new random string of digits
+            $randomDigits = '';
+            for ($i = 0; $i < 5; $i++) {
+                $randomDigits .= mt_rand(0, 9);
+            }
+
+            $username = $prefix . $randomDigits; // Generate a new username
+        }
+
+        return $username;
+    }
+
 
     /**
      * Indicate that the model's email address should be unverified.

@@ -5,6 +5,8 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Option;
 use Illuminate\Database\Seeder;
+use Database\Seeders\VotesSeeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,14 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        parent::call(UsersSeeder::class);
         parent::call(CountriesSeeder::class);
+        parent::call(VotesSeeder::class);
 
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
         Option::create(['name' => 'Accepting what was written in the Torah thousands of years ago as a legal document for land ownership in the United Nations.
 ']);
 

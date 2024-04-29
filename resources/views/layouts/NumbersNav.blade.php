@@ -3,18 +3,18 @@
     <div class="max-w-screen-xl px-4 py-3 mx-auto">
         <div class="flex items-center justify-center">
             <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
-                <li>
+                {{-- <li>
                     <x-nav-link :href="route('numbers')" :active="request()->routeIs('numbers')">
                         {{ __('Population') }}
                     </x-nav-link>
-                </li>
+                </li> --}}
                 <li>
-                    <x-nav-link :href="route('politics')" :active="request()->routeIs('politics')">
+                    <x-nav-link :href="route('numbers')" :active="request()->routeIs('numbers')">
                         {{ __('Support') }}
                     </x-nav-link>
                 </li>
                 <li>
-                    <x-nav-link :href="route('finance')" :active="request()->routeIs('finance')">
+                    <x-nav-link :href="route('losses')" :active="request()->routeIs('losses')">
                         {{ __('Losses') }}
                     </x-nav-link>
                 </li>

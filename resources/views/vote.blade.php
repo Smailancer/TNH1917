@@ -60,7 +60,7 @@
         <div class="grid text-center max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-7">
                 <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Time to review that promise</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">We will now revive the promise and we will simulate the real declaration and give everyone the opportunity to assume the role of Balfour to decide the new location of The National Homel through a <strong class="font-semibold text-gray-900 dark:text-white"> list of the countries that recognize the establishment of this new state </strong> and that it is assumed that they will not object if it were on their lands since they support the existence of such an invention called a national home.</p>
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">We will now revive the promise and we will simulate the real declaration and give everyone the opportunity to assume the role of Balfour to decide the new location of The National Homel through a <strong class="font-semibold text-gray-900 dark:text-white"> list of the countries that recognize the establishment of this new state and that it is assumed that they will not object if it were on their lands since they support the existence of such an invention called a national home.  </strong> </p>
 
             </div>
             <div class="lg:mt-0 lg:col-span-5 lg:flex">

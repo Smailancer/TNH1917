@@ -15,7 +15,7 @@
               <img src="https://cdn.vectorstock.com/i/preview-1x/80/91/person-gray-photo-placeholder-little-boy-vector-22808091.jpg" alt="Placeholder" class="rounded-full w-24 h-24 mx-auto object-cover">
               <h2 class="text-xl font-semibold text-center mt-2">Name Placeholder</h2>
               <p class="text-center">Birth: YYYY-MM-DD</p>
-              <p class="text-center">Death: YYYY-MM-DD</p>
+              <p class="text-center">Status : Orphan, widow, bereaved</p>
               <p class="text-sm text-gray-600 mt-2 text-center">
                 Additional info here.
               </p>
@@ -30,7 +30,7 @@
               <img src="https://cdn.vectorstock.com/i/preview-1x/80/91/person-gray-photo-placeholder-little-boy-vector-22808091.jpg" alt="Placeholder" class="rounded-full w-24 h-24 mx-auto object-cover">
               <h2 class="text-xl font-semibold text-center mt-2">Name Placeholder</h2>
               <p class="text-center">Birth: YYYY-MM-DD</p>
-              <p class="text-center">Death: YYYY-MM-DD</p>
+              <p class="text-center">Status : Orphan, widow, bereaved</p>
               <p class="text-sm text-gray-600 mt-2 text-center">
                 Additional info here.
               </p>
@@ -44,7 +44,7 @@
               <img src="https://cdn.vectorstock.com/i/preview-1x/80/91/person-gray-photo-placeholder-little-boy-vector-22808091.jpg" alt="Placeholder" class="rounded-full w-24 h-24 mx-auto object-cover">
               <h2 class="text-xl font-semibold text-center mt-2">Name Placeholder</h2>
               <p class="text-center">Birth: YYYY-MM-DD</p>
-              <p class="text-center">Death: YYYY-MM-DD</p>
+              <p class="text-center">Status : Orphan, widow, bereaved</p>
               <p class="text-sm text-gray-600 mt-2 text-center">
                 Additional info here.
               </p>
@@ -57,7 +57,7 @@
               <img src="https://cdn.vectorstock.com/i/preview-1x/80/91/person-gray-photo-placeholder-little-boy-vector-22808091.jpg" alt="Placeholder" class="rounded-full w-24 h-24 mx-auto object-cover">
               <h2 class="text-xl font-semibold text-center mt-2">Name Placeholder</h2>
               <p class="text-center">Birth: YYYY-MM-DD</p>
-              <p class="text-center">Death: YYYY-MM-DD</p>
+              <p class="text-center">Status : Orphan, widow, bereaved</p>
               <p class="text-sm text-gray-600 mt-2 text-center">
                 Additional info here.
               </p>
@@ -70,7 +70,7 @@
               <img src="https://cdn.vectorstock.com/i/preview-1x/80/91/person-gray-photo-placeholder-little-boy-vector-22808091.jpg" alt="Placeholder" class="rounded-full w-24 h-24 mx-auto object-cover">
               <h2 class="text-xl font-semibold text-center mt-2">Name Placeholder</h2>
               <p class="text-center">Birth: YYYY-MM-DD</p>
-              <p class="text-center">Death: YYYY-MM-DD</p>
+              <p class="text-center">Status : Orphan, widow, bereaved</p>
               <p class="text-sm text-gray-600 mt-2 text-center">
                 Additional info here.
               </p>
@@ -83,7 +83,7 @@
               <img src="https://cdn.vectorstock.com/i/preview-1x/80/91/person-gray-photo-placeholder-little-boy-vector-22808091.jpg" alt="Placeholder" class="rounded-full w-24 h-24 mx-auto object-cover">
               <h2 class="text-xl font-semibold text-center mt-2">Name Placeholder</h2>
               <p class="text-center">Birth: YYYY-MM-DD</p>
-              <p class="text-center">Death: YYYY-MM-DD</p>
+              <p class="text-center">Status : Orphan, widow, bereaved</p>
               <p class="text-sm text-gray-600 mt-2 text-center">
                 Additional info here.
               </p>
@@ -96,7 +96,7 @@
               <img src="https://cdn.vectorstock.com/i/preview-1x/80/91/person-gray-photo-placeholder-little-boy-vector-22808091.jpg" alt="Placeholder" class="rounded-full w-24 h-24 mx-auto object-cover">
               <h2 class="text-xl font-semibold text-center mt-2">Name Placeholder</h2>
               <p class="text-center">Birth: YYYY-MM-DD</p>
-              <p class="text-center">Death: YYYY-MM-DD</p>
+              <p class="text-center">Status : Orphan, widow, bereaved</p>
               <p class="text-sm text-gray-600 mt-2 text-center">
                 Additional info here.
               </p>
@@ -109,7 +109,7 @@
               <img src="https://cdn.vectorstock.com/i/preview-1x/80/91/person-gray-photo-placeholder-little-boy-vector-22808091.jpg" alt="Placeholder" class="rounded-full w-24 h-24 mx-auto object-cover">
               <h2 class="text-xl font-semibold text-center mt-2">Name Placeholder</h2>
               <p class="text-center">Birth: YYYY-MM-DD</p>
-              <p class="text-center">Death: YYYY-MM-DD</p>
+              <p class="text-center">Status : Orphan, widow, bereaved</p>
               <p class="text-sm text-gray-600 mt-2 text-center">
                 Additional info here.
               </p>
@@ -122,7 +122,7 @@
               <img src="https://cdn.vectorstock.com/i/preview-1x/80/91/person-gray-photo-placeholder-little-boy-vector-22808091.jpg" alt="Placeholder" class="rounded-full w-24 h-24 mx-auto object-cover">
               <h2 class="text-xl font-semibold text-center mt-2">Name Placeholder</h2>
               <p class="text-center">Birth: YYYY-MM-DD</p>
-              <p class="text-center">Death: YYYY-MM-DD</p>
+              <p class="text-center">Status : Orphan, widow, bereaved</p>
               <p class="text-sm text-gray-600 mt-2 text-center">
                 Additional info here.
               </p>
@@ -135,7 +135,7 @@
               <img src="https://cdn.vectorstock.com/i/preview-1x/80/91/person-gray-photo-placeholder-little-boy-vector-22808091.jpg" alt="Placeholder" class="rounded-full w-24 h-24 mx-auto object-cover">
               <h2 class="text-xl font-semibold text-center mt-2">Name Placeholder</h2>
               <p class="text-center">Birth: YYYY-MM-DD</p>
-              <p class="text-center">Death: YYYY-MM-DD</p>
+              <p class="text-center">Status : Orphan, widow, bereaved</p>
               <p class="text-sm text-gray-600 mt-2 text-center">
                 Additional info here.
               </p>
