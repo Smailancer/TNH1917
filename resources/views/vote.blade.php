@@ -25,7 +25,7 @@
 
             <dic class="max-w-lg lg:col-span-5 item-center ">
                 <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">The Balfor Declaration</figcaption>
-                <img class="mx-auto h-auto max-w-lg" src="/declaration.jpg" alt="the declaration letter">
+                <img class="mx-auto h-auto " src="/declaration.jpg" alt="the declaration letter">
             </div>
 
 
@@ -43,7 +43,7 @@
 
             <div class="lg:col-span-5 lg:order-first order-last mt-8 lg:mt-0 lg:flex">
                 {{-- <img class="mb-4 lg:mb-0" src="balfour.png" alt="mockup"> --}}
-                <img class=" h-80 max-w-lg px-3" src="balfour.jpg" alt="arther balfor">
+                <img class="  px-3" src="balfour.jpg" alt="arther balfor">
 
             </div>
 
@@ -65,7 +65,7 @@
             </div>
             <div class="lg:mt-0 lg:col-span-5 lg:flex">
                 {{-- <img src="map.png" alt="mockup"> --}}
-                <img class="mx-auto h-auto max-w-lg" src="map.png" alt="ocupation status">
+                <img class="mx-auto h-auto" src="map.png" alt="ocupation status">
 
             </div>
         </div>

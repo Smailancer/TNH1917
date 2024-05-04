@@ -17,7 +17,7 @@ use App\Http\Controllers\NewsletterController;
 |
 */
 Route::get('/Results', function () {
-    return view('votes\results');
+    return view('votes.results');
 })->name('results');
 
 Route::get('/Story', function () {
@@ -34,11 +34,11 @@ Route::get('/After', function () {
 
 
 Route::get('/Fallacies', function () {
-    return view('fnf\fallacies');
+    return view('fnf.fallacies');
 })->name('fallacies');
 
 Route::get('/Facts', function () {
-    return view('fnf\facts');
+    return view('fnf.facts');
 })->name('facts');
 
 
@@ -106,7 +106,7 @@ Route::get('/Discussions', function () {
 })->name('discussions');
 
 Route::get('/DUN', function () {
-    return view('DUN');
+    return view('dun');
 })->name('DUN');
 
 Route::get('/Support', function () {
