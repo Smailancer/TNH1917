@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.map-container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+}
+
+.blue-overlay {
+    filter: brightness(0) saturate(100%) invert(34%) sepia(87%) saturate(6882%) hue-rotate(193deg) brightness(90%) contrast(300%);
+}
+
+#occupation-slider {
+    width: 600px;
+    margin-top: 20px;
+}

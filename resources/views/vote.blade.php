@@ -78,38 +78,48 @@
 <!-- Example view: resources/views/votes/create.blade.php -->
 
 <section id="voting" class="bg-gray dark:bg-gray-900 px-3 mx-2 flex justify-center items-center min-h-screen">
-    <div class="my-2 w-full max-w-2xl mx-auto lg:pt-16 lg:pb-24 bg-white p-3 duration-1000 opacity-70 -inset-px bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt" x-data="{countryId: null, countryCode: '', countryName: '', percentage: 50}" >
+    <div class="my-2 w-full max-w-2xl mx-auto lg:pt-16 lg:pb-24 bg-white p-3 duration-1000 opacity-70 -inset-px bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"
+         x-data="{countryId: null, countryCode: '', countryName: '', percentage: 50, basePath: '{{ asset('maps') }}' }" >
         <form action="{{ route('votes.store') }}" method="POST">
             @csrf
-            <h1 class="text-center  max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Act as Balfour Now and revote</h1>
+            <h1 class="text-center max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Act as Balfour Now and Revote</h1>
 
-            <div >
+            <div>
                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white p-2">1- The New National Home: Choose a country</label>
                 <select x-model="countryId" @change="countryCode = $event.target.options[$event.target.selectedIndex].getAttribute('data-code'); countryName = $event.target.options[$event.target.selectedIndex].text" name="country_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    <option value="" selected >Select a country</option>
+                    <option value="" selected>Select a country</option>
                     @foreach ($countries as $country)
                         <option value="{{ $country->id }}" data-code="{{ $country->code }}">{{ $country->name }}</option>
                     @endforeach
-
                 </select>
-                <p class="mt-2 text-sm text-black dark:text-white">* List of countries that recognize the establishment of the Zionist entity.</p>
-
+                <p class="mt-2 text-sm text-black dark:text-white">*  <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://en.wikipedia.org/wiki/International_recognition_of_Israel">List</a> of countries that recognize the establishment of the Zionist entity.</p>
             </div>
 
             <div x-show="countryCode !== 'nil'" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
                 <template x-if="countryCode">
-                    <div class="my-4 grid grid-cols place-items-center p-2 m-2">
-                        <img :src="`https://simplemaps.com/static/svg/country/${countryCode.toLowerCase()}/all/${countryCode.toLowerCase()}.svg`" :alt="`Map of ${countryCode}`" class="max-w-xs h-auto rounded-lg">
-                        <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400" x-text="`Map of ${countryName}`"></figcaption>
+                    <div class="relative my-4 grid place-items-center p-2 m-2">
+                        <div class="relative map-container" style="width: 600px; height: 400px;">
+                            <svg id="map-svg" viewBox="0 0 800 800" width="600" height="400">
+                                <defs>
+                                    <mask id="occupation-mask">
+                                        <rect id="mask-rect" x="0" y="0" width="0" height="800" fill="white"></rect>
+                                    </mask>
+                                </defs>
+                                <!-- Original Map Colored Black -->
+                                <image :href="`${basePath}/${countryCode.toLowerCase()}/vector.svg`" width="800" height="800" style="filter: grayscale(100%);"></image>
+                                <!-- Blue Overlay Map -->
+                                <image :href="`${basePath}/${countryCode.toLowerCase()}/vector.svg`" width="800" height="800" class="blue-overlay" mask="url(#occupation-mask)"></image>
+                            </svg>
+                        </div>
+                        <figcaption class="mt-2 text-sm text-center text-gray-900 dark:text-gray-400" x-text="`Map of ${countryName}`"></figcaption>
                     </div>
+
                 </template>
                 <hr class="p-3 m-5">
             </div>
 
-
-
-                <!-- Percentage Section -->
-                <div x-show="countryCode !== 'nil'"
+            <!-- Percentage Section -->
+            <div x-show="countryCode !== 'nil'"
                 x-transition:enter="transition-opacity duration-300"
                 x-transition:enter-start="opacity-0"
                 x-transition:enter-end="opacity-100"
@@ -117,16 +127,17 @@
                 x-transition:leave-start="opacity-100"
                 x-transition:leave-end="opacity-0"
                 class="m-3">
+
                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     2- Percentage of the land you want to give to Israel from the native country
                 </label>
                 <input x-model="percentage"
-                       type="range"
-                       name="percentage"
-                       class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-900"
-                       min="0"
-                       max="100"
-                       @input="$event.target.style.background = 'linear-gradient(to right, blue 0%, red ' + $event.target.value + '%, #ccc ' + $event.target.value + '%, #ccc 100%)'">
+                    type="range"
+                    name="percentage"
+                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-900"
+                    min="0"
+                    max="100"
+                    @input="$event.target.style.background = 'linear-gradient(to right, blue 0%,  ' + $event.target.value + '%, #ccc ' + $event.target.value + '%, #ccc 100%)'; updateMaskWidth($event.target.value)">
                 <div class="flex justify-between text-sm text-gray-800 dark:text-gray-800">
                     <div>
                         <span>Israel</span>
@@ -137,8 +148,8 @@
                         <!-- Use conditional rendering to show the default image if no country is selected -->
                         <template x-if="countryCode">
                             <img x-bind:src="`https://flagpedia.net/data/flags/w702/${countryCode.toLowerCase()}.webp`"
-                                 x-bind:alt="`Flag of ${countryCode}`"
-                                 class="block rounded-full mx-auto w-16 h-16 mt-2">
+                                x-bind:alt="`Flag of ${countryCode}`"
+                                class="block rounded-full mx-auto w-16 h-16 mt-2">
                         </template>
                         <template x-if="!countryCode">
                             <img src="Unknown.webp" alt="Default Flag" class="block rounded-full mx-auto w-16 h-16 mt-2">
@@ -149,22 +160,17 @@
                 <hr class="p-3 m-2">
             </div>
 
-
-
-                <!-- Dessisions Section -->
-                <div x-show="countryCode !== 'nil'" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="m-3">
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">3-What decisions will you make with the indigenous people?</label>
-                    @foreach ($options as $option)
-                        <div class="flex items-center my-4">
-                            <input type="checkbox" value="{{ $option->id }}" name="options[]" id="option-{{ $option->id }}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="option-{{ $option->id }}" class="ml-2 text-sm font-medium text-black dark:text-gray-300">{{ $option->name }}</label>
-                        </div>
-                    @endforeach
-                    <hr class="p-3 m-2">
-                </div>
-
-
-
+            <!-- Decisions Section -->
+            <div x-show="countryCode !== 'nil'" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="m-3">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">3-What decisions will you make with the indigenous people?</label>
+                @foreach ($options as $option)
+                    <div class="flex items-center my-4">
+                        <input type="checkbox" value="{{ $option->id }}" name="options[]" id="option-{{ $option->id }}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="option-{{ $option->id }}" class="ml-2 text-sm font-medium text-black dark:text-gray-300">{{ $option->name }}</label>
+                    </div>
+                @endforeach
+                <hr class="p-3 m-2">
+            </div>
 
             <div class="sm:col-span-2 my-4">
                 <label for="notes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">4- Notes: Other Suggestions</label>
@@ -177,9 +183,10 @@
 </section>
 
 
+
     {{-- Statistics  --}}
 
-    <section class="bg-white dark:bg-gray-900 mb-1">
+    {{-- <section class="bg-white dark:bg-gray-900 mb-1">
         <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
             <dl class="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white">
                 <div class="flex flex-col items-center justify-center">
@@ -196,7 +203,7 @@
                 </div>
             </dl>
         </div>
-      </section>
+      </section> --}}
       <hr>
 
       {{-- newsletter --}}

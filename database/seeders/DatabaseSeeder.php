@@ -35,7 +35,7 @@ Option::create(['name' => 'Enacting new cunning laws to confiscate the lands fro
 Option::create(['name' => 'Arresting any troublesome person who resists and protests (even  peacefully) against these new laws and describe what he is doing as an act of sabotage.
 ']);
 
-Option::create(['name' => 'Blackmailing the indigenous population to escalate by cutting off resources such as water and electricity, isolating the indigenous people, leaving them to slow death, and forcing them to protest using force.
+Option::create(['name' => 'Blackmailing the indigenous population to escalate by cutting off resources such as water and electricity, isolating and leaving them to slow death, in order to push them to protest using force.
 ']);
 
 Option::create(['name' => 'In case the blackmail succeeds and any armed resistance appears, using it as an excuse and directly labeling it as terrorism, and spreading it through propaganda (media warfare) to obtain validation from the world to facilitate afterwards eliminating it.

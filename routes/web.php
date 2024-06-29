@@ -110,7 +110,7 @@ Route::get('/DUN', function () {
 })->name('DUN');
 
 Route::get('/Support', function () {
-    return view('Support');
+    return view('support');
 })->name('Support');
 
 
