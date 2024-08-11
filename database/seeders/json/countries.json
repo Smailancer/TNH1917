@@ -1,7 +1,11 @@
 [
 {
-    "name": "As Balfour I wont't choose any land my country doesn't own",
+    "name": "As simulated Balfour I don't have the right to choose any land my country doesn't own",
     "code": "NIL"
+},
+{
+    "name": "United Kingdom",
+    "code": "GB"
 },
 {
     "name": "United States",

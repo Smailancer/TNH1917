@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vote;
 use App\Models\User;
+use App\Models\Vote;
 use App\Models\Option;
 use App\Models\Country;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 
@@ -192,9 +192,23 @@ class VoteController extends Controller
         return redirect()->back()->withErrors('You are not allowed to download this vote.');
     }
 
+    // Render the view to HTML
+    $html = view('votes.pdf', compact('vote'))->render();
+
+    // Save the HTML to a file for debugging
+    file_put_contents(storage_path('app/public/vote-details.html'), $html);
+
+    // Set options to enable remote assets
+    $options = [
+        'isRemoteEnabled' => true,
+    ];
+
     // Load a view into PDF
-    $pdf = PDF::loadView('votes.pdf', compact('vote'));
+    $pdf = \PDF::setOptions($options)->loadHTML($html);
     return $pdf->download('vote-details-' . $vote->id . '.pdf');
 }
+
+
+
 
 }
