@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('options', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Add any additional columns as needed
+            $table->string('name'); 
+            $table->string('category');
             $table->timestamps();
         });
     }

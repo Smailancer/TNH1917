@@ -2,23 +2,17 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Filament\Panel;
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Notifications\Notifiable;
-use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Filament\Models\Contracts\FilamentUser;
+use Illuminate\Notifications\Notifiable;
+use Filament\Panel;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'username',
         'name',
@@ -26,47 +20,37 @@ class User extends Authenticatable implements FilamentUser
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
 
+    /**
+     * Determine if the user can access the Filament panel.
+     */
     public function canAccessPanel(Panel $panel): bool
     {
-        return str_ends_with($this->email, 'admin@smail.com') ;
+        return str_ends_with($this->email, 'admin@smail.com');
     }
 
+    /**
+     * Check if the user has cast a vote.
+     */
+    public function hasVoted(): bool
+    {
+        return $this->vote()->exists();
+    }
 
-    // public function canAccessPanel(Panel $panel): bool
-    // {
-    //     return str_ends_with($this->email, 'admin@smail.com') && $this->hasVerifiedEmail();
-    // }
-
-            public function hasVoted()
-        {
-            return $this->votes()->exists();
-        }
-
-        // Replace this relationship in the User model
-        public function votes()
-        {
-            return $this->hasOne(Vote::class); // Change hasMany to hasOne
-        }
-
-
+    /**
+     * Relationship with Vote.
+     */
+    public function vote()
+    {
+        return $this->hasOne(Vote::class);
+    }
 }

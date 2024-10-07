@@ -9,10 +9,13 @@ class Option extends Model
 {
     use HasFactory;
 
-    // Option model
-    public function votes()
-{
-    return $this->belongsToMany(Vote::class);
-}
+    protected $fillable = ['name', 'category'];
 
+    /**
+     * Relationship with Vote.
+     */
+    public function votes()
+    {
+        return $this->belongsToMany(Vote::class);
+    }
 }

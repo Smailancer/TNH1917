@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('country_id')->constrained('countries');
+            $table->foreignId('country_id')->constrained()->onDelete('cascade');
             $table->decimal('percentage', 5, 2);
             $table->text('notes')->nullable();
-            $table->boolean('public_vote')->default(false); // New boolean field for public/private vote
-            $table->unique(['user_id', 'country_id']);
-
+            $table->boolean('public_vote')->default(false); 
+            $table->boolean('downloaded')->default(false); 
+            $table->boolean('sent_to_embassy')->default(false);
+            $table->boolean('published_on_social_media')->default(false); 
             $table->timestamps();
         });
     }
@@ -29,6 +30,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('votes', function (Blueprint $table) {
+            $table->dropForeign(['country_id']);
+        });
         Schema::dropIfExists('votes');
     }
 };

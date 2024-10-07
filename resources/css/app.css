@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
 
 .map-container {
     position: relative;
@@ -16,4 +19,12 @@
 #occupation-slider {
     width: 600px;
     margin-top: 20px;
+}
+
+#mostChosenCountriesChart {
+    height: 400px; /* or any height you prefer */
+}
+.chart-blur {
+    filter: blur(10px);
+    pointer-events: none;  /* Prevent interactions with the blurred chart */
 }

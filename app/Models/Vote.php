@@ -2,37 +2,43 @@
 
 namespace App\Models;
 
-use App\Models\Option;
-use App\Models\Country;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Vote extends Model
 {
     use HasFactory;
 
-        protected $fillable = [
+    protected $fillable = [
+        'user_id',
+        'country_id',
+        'percentage',
+        'notes',
+         'public_vote', 'downloaded', 'sent_to_embassy', 'published_on_social_media'
+    ];
 
-            'user_id',
-            'country_id',
-            'percentage',
-            'option_id',
-            'notes',
-        ];
-
-        public function user()
+    /**
+     * Relationship with User.
+     */
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-        public function country()
+    /**
+     * Relationship with Country.
+     */
+    public function country()
     {
         return $this->belongsTo(Country::class);
     }
 
-        public function options()
+    /**
+     * Relationship with Option.
+     */
+    public function options()
     {
         return $this->belongsToMany(Option::class);
     }
-
+    
 }

@@ -4,6 +4,7 @@ use App\Models\Vote;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PetitionController;
 use App\Http\Controllers\NewsletterController;
 
 /*
@@ -105,9 +106,9 @@ Route::get('/Discussions', function () {
     return view('discussions');
 })->name('discussions');
 
-Route::get('/DUN', function () {
-    return view('dun');
-})->name('DUN');
+// Route::get('/DUN', function () {
+//     return view('dun');
+// })->name('DUN');
 
 Route::get('/Support', function () {
     return view('support');
@@ -148,4 +149,8 @@ Route::get('/test-pdf-view', function () {
     return view('votes.pdf', compact('vote'));
 });
 
+Route::get('/dun', [PetitionController::class, 'index'])->name('petition.index');
+Route::post('/dun/sign', [PetitionController::class, 'sign'])->name('petition.sign');
+
+Route::patch('/votes/{vote}/update-actions', [VoteController::class, 'updateActions'])->name('votes.updateActions');
 require __DIR__.'/auth.php';

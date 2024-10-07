@@ -37,15 +37,16 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('petition.index')" :active="request()->routeIs('petition.index')">
+                        {{ __('DUN') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('discussions')" :active="request()->routeIs('discussions')">
                         {{ __('Discussions') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('DUN')" :active="request()->routeIs('DUN')">
-                        {{ __('DUN') }}
-                    </x-nav-link>
-                </div>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -70,7 +71,7 @@
                     <x-slot name="content">
 
                         @if(auth()->user()->hasVoted())
-                        <x-dropdown-link :href="route('votes.show', ['vote' => auth()->user()->votes])">
+                        <x-dropdown-link :href="route('votes.show', ['vote' => auth()->user()->vote])">
                             {{ __('My Vote') }}
                         </x-dropdown-link>
                     @endif
@@ -133,11 +134,11 @@
             <x-responsive-nav-link :href="route('fallacies')" :active="request()->routeIs('fallacies')">
                 {{ __('F & F') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('petition.index')" :active="request()->routeIs('petition.index')">
+                {{ __('DUN') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('discussions')" :active="request()->routeIs('discussions')">
                 {{ __('Discussions') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('DUN')" :active="request()->routeIs('DUN')">
-                {{ __('DUN') }}
             </x-responsive-nav-link>
         </div>
 

@@ -10,33 +10,45 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-
 class VoteController extends Controller
 {
 
     public function show(Vote $vote): View
-{
-    // Additional logic to check if the user can view this vote, e.g., ownership check
-    if (!$this->canUserViewVote($vote)) {
-        return redirect()->back()->withErrors('You are not allowed to view this vote.');
+    {
+        // Additional logic to check if the user can view this vote, e.g., ownership check
+        if (!$this->canUserViewVote($vote)) {
+            return redirect()->back()->withErrors('You are not allowed to view this vote.');
+        }
+
+        return view('votes.show', compact('vote'));
     }
 
-    return view('votes.show', compact('vote'));
-}
+    //     public function resultes()
+    // {
 
-//     public function resultes()
-// {
-
-//     return view('votes.resultes');
-// }
+    //     return view('votes.resultes');
+    // }
 
 
     public function create()
     {
-        $countries = Country::all();
+        $vetoCountries = ['United States', 'United Kingdom', 'France', 'Russia', 'China']; // List of veto power countries
+        $supportiveCountries = Country::where('supportive', true)->get();
         $options = Option::all();
 
-        return view('vote', compact('options', 'countries'));
+        // Separate veto countries from the supportive countries
+        $vetoCountriesList = $supportiveCountries->filter(function ($country) use ($vetoCountries) {
+            return in_array($country->name, $vetoCountries);
+        });
+
+        $otherSupportiveCountriesList = $supportiveCountries->filter(function ($country) use ($vetoCountries) {
+            return !in_array($country->name, $vetoCountries);
+        });
+
+        // Merge the lists, with veto countries on top
+        $sortedCountries = $vetoCountriesList->merge($otherSupportiveCountriesList);
+
+        return view('vote', compact('options', 'sortedCountries'));
     }
 
     public function store(Request $request)
@@ -58,7 +70,7 @@ class VoteController extends Controller
         if (auth()->user()->hasVoted()) {
             return redirect()->back()->with([
                 'message' => 'You have already voted. You cannot vote again, check your vote details in you profile.',
-                'messageType' => 'info' // Ensure this matches the types your component expects
+                'messageType' => 'error' 
             ]);
         }
 
@@ -75,9 +87,9 @@ class VoteController extends Controller
         // Attach selected options to the vote
         $vote->options()->attach($validated['options']);
 
-        return redirect()->back()->with([
-            'message' => 'Your Vote has been submitted successfully!',
-            'messageType' => 'success' // Ensure this matches the types your component expects
+        return redirect()->route('votes.show', $vote->id)->with([
+            'message' => 'Your vote has been submitted successfully! Continue to step 5: download and send your declaration to the embassy.',
+            'messageType' => 'success'
         ]);
     }
 
@@ -90,10 +102,10 @@ class VoteController extends Controller
     public function edit(Vote $vote): View
     {
         // Assuming you want to use the same view as 'create' for editing
-        $countries = Country::all();
+        $supportiveCountries = Country::where('supportive', true)->get();
         $options = Option::all();
 
-        return view('profile.EditVote', compact('vote', 'options', 'countries'));
+        return view('profile.EditVote', compact('vote', 'options', 'supportiveCountries'));
     }
 
     /**
@@ -186,29 +198,50 @@ class VoteController extends Controller
 
 
     public function downloadPdf(Vote $vote)
-{
-    // Check if the user is authorized to download the vote details
-    if (!$this->canUserViewVote($vote)) {
-        return redirect()->back()->withErrors('You are not allowed to download this vote.');
+    {
+        // Check if the user is authorized to download the vote details
+        if (!$this->canUserViewVote($vote)) {
+            return redirect()->back()->withErrors('You are not allowed to download this vote.');
+        }
+
+        // Render the view to HTML
+        $html = view('votes.pdf', compact('vote'))->render();
+
+        // Save the HTML to a file for debugging
+        file_put_contents(storage_path('app/public/vote-details.html'), $html);
+
+        // Set options to enable remote assets
+        $options = [
+            'isRemoteEnabled' => true,
+        ];
+
+        // Load a view into PDF
+        $pdf = \PDF::setOptions($options)->loadHTML($html);
+        return $pdf->download('vote-details-' . $vote->id . '.pdf');
     }
 
-    // Render the view to HTML
-    $html = view('votes.pdf', compact('vote'))->render();
+    public function updateActions(Request $request, Vote $vote)
+    {
+        \Log::info('Before Update:', $vote->toArray());
+        \Log::info('Request Data:', $request->all());
 
-    // Save the HTML to a file for debugging
-    file_put_contents(storage_path('app/public/vote-details.html'), $html);
+        // Validate with updated rules
+        $request->validate([
+            'downloaded' => 'nullable|in:on',
+            'sent_to_embassy' => 'nullable|in:on',
+            'published_on_social_media' => 'nullable|in:on',
+        ]);
 
-    // Set options to enable remote assets
-    $options = [
-        'isRemoteEnabled' => true,
-    ];
+        // Update the vote with proper handling of checkboxes
+        $vote->update([
+            'downloaded' => $request->has('downloaded'),
+            'sent_to_embassy' => $request->has('sent_to_embassy'),
+            'published_on_social_media' => $request->has('published_on_social_media'),
+        ]);
 
-    // Load a view into PDF
-    $pdf = \PDF::setOptions($options)->loadHTML($html);
-    return $pdf->download('vote-details-' . $vote->id . '.pdf');
-}
+        \Log::info('After Update:', $vote->fresh()->toArray());
 
-
-
+        return redirect()->back()->with('success', 'Actions updated successfully!');
+    }
 
 }

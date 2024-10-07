@@ -20,14 +20,10 @@
                 </li>
                 <li>
                     <x-nav-link :href="route('famine')" :active="request()->routeIs('famine')">
-                        {{ __('In famine') }}
+                        {{ __('Other') }}
                     </x-nav-link>
                 </li>
-                <li>
-                    <x-nav-link :href="route('displaced')" :active="request()->routeIs('displaced')">
-                        {{ __('Displaced') }}
-                    </x-nav-link>
-                </li>
+            
             </ul>
         </div>
     </div>

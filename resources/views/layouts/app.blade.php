@@ -17,6 +17,8 @@
         {{-- <script src="//unpkg.com/alpinejs" defer></script> --}}
 
         <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
@@ -50,8 +52,9 @@
 
         @include('layouts.footer')
 
+        
         @livewireScripts
-        <script src="//unpkg.com/alpinejs" defer></script>
+        <script src="{{ mix('js/app.js') }}"></script>
 
     </body>
 </html>

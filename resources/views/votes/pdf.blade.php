@@ -118,8 +118,6 @@
         <p class="signature">{{ $vote->user->username }}</p>
     </div>
 
-    <div class="letter-footer">
-        <p>Thank you for considering this educational and reflective exercise.</p>
-    </div>
+    
 </body>
 </html>
