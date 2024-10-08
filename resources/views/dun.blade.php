@@ -8,65 +8,86 @@
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-blue-500 to-teal-500 py-16 text-center text-white">
         <div class="max-w-5xl mx-auto px-4">
-            <h1 class="text-5xl sm:text-4xl font-extrabold mb-6">Reimagine Global Governance with Decentralization</h1>
+            <h1 class="text-5xl sm:text-4xl font-extrabold mb-6">Recreate Global Governance with Decentralization</h1>
             <p class="text-xl sm:text-base mb-8">Join millions in advocating for a transparent, fair, and decentralized United Nations that empowers all nations equally.</p>
             <a href="#sign" class="bg-white text-blue-600 px-10 py-4 rounded-full text-xl sm:text-base font-semibold hover:bg-gray-100 transition duration-300">Sign the Petition</a>
         </div>
     </section>
 
-       <!-- Timeline Section -->
-       <section class="bg-gray-50 py-16">
-        <div class="max-w-5xl mx-auto px-4">
-            <h3 class="text-4xl sm:text-3xl font-semibold text-gray-800 mb-8 text-center">Journey Toward Decentralization</h3>
-            <!-- Timeline Component -->
-            <div class="relative">
-                <!-- Vertical Line -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-blue-600"></div>
-                <!-- Timeline Items -->
-                <div class="space-y-12">
-                    <!-- Item 1 -->
-                    <div class="flex flex-col md:flex-row items-center md:space-x-8">
-                        <div class="md:w-1/2 md:order-2">
-                            <h4 class="text-2xl font-semibold mb-2">1919: League of Nations Established</h4>
-                            <p class="text-gray-700">Formed after World War I to promote peace, but lacked enforcement power and universal membership.</p>
-                        </div>
-                        <div class="md:w-1/2 md:order-1 text-center">
-                            <div class="w-12 h-12 bg-blue-600 text-white rounded-full mx-auto flex items-center justify-center mb-4">
-                                <span class="font-bold">1919</span>
-                            </div>
+      <!-- Timeline Section -->
+<section class="bg-gray-50 py-16">
+    <div class="max-w-5xl mx-auto px-4">
+        <h3 class="text-4xl sm:text-3xl font-semibold text-gray-800 mb-8 text-center">Evolution of the world order</h3>
+        <!-- Timeline Component -->
+        <div class="relative">
+            <!-- Vertical Line -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-blue-600"></div>
+            <!-- Timeline Items -->
+            <div class="space-y-12">
+                <!-- Item 1: League of Nations -->
+                <div class="flex flex-col md:flex-row items-center md:space-x-8">
+                    <div class="md:w-1/2 md:order-2">
+                        <h4 class="text-2xl font-semibold mb-2">1919: League of Nations Established</h4>
+                        <p class="text-gray-700 mb-4">
+                            Formed after World War I to promote peace, but lacked enforcement power and universal membership.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Failed to prevent aggression by major powers leading up to World War II.</li>
+                            <li>Inability to enforce disarmament and resolve conflicts effectively.</li>
+                            <li>Absence of key nations like the United States weakened its influence.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 md:order-1 text-center">
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full mx-auto flex items-center justify-center mb-4">
+                            <span class="font-bold">1919</span>
                         </div>
                     </div>
-                    <!-- Item 2 -->
-                    <div class="flex flex-col md:flex-row items-center md:space-x-8">
-                        <div class="md:w-1/2">
-                            <h4 class="text-2xl font-semibold mb-2">1945: United Nations Founded</h4>
-                            <p class="text-gray-700">Established post-World War II with the aim of preventing future conflicts, introducing the Security Council and veto power.</p>
-                        </div>
-                        <div class="md:w-1/2 text-center">
-                            <div class="w-12 h-12 bg-blue-600 text-white rounded-full mx-auto flex items-center justify-center mb-4">
-                                <span class="font-bold">1945</span>
-                            </div>
+                </div>
+                <!-- Item 2: United Nations -->
+                <div class="flex flex-col md:flex-row items-center md:space-x-8">
+                    <div class="md:w-1/2">
+                        <h4 class="text-2xl font-semibold mb-2">1945: United Nations Founded</h4>
+                        <p class="text-gray-700 mb-4">
+                            Established post-World War II with the aim of preventing future conflicts, introducing the Security Council and veto power.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Use of veto power by permanent members often paralyzes decision-making.</li>
+                            <li>Failed to resolve prolonged conflicts, such as the Israeli-Palestinian dispute.</li>
+                            <li>Criticized for inadequate response to humanitarian crises and genocides.</li>
+                            <li>Perceived bias and lack of representation for smaller nations.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 text-center">
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full mx-auto flex items-center justify-center mb-4">
+                            <span class="font-bold">1945</span>
                         </div>
                     </div>
-                    <!-- Item 3 -->
-                    <!-- Add more timeline items as needed -->
-                    <!-- Item N -->
-                    <div class="flex flex-col md:flex-row items-center md:space-x-8">
-                        <div class="md:w-1/2 md:order-2">
-                            <h4 class="text-2xl font-semibold mb-2">2024: Call for Decentralization</h4>
-                            <p class="text-gray-700">Recognizing the need for a fairer system, we propose a decentralized model leveraging blockchain technology.</p>
-                        </div>
-                        <div class="md:w-1/2 md:order-1 text-center">
-                            <div class="w-12 h-12 bg-blue-600 text-white rounded-full mx-auto flex items-center justify-center mb-4">
-                                <span class="font-bold">2024</span>
-                            </div>
+                </div>
+                <!-- Item 3: Call for Decentralization -->
+                <div class="flex flex-col md:flex-row items-center md:space-x-8">
+                    <div class="md:w-1/2 md:order-2">
+                        <h4 class="text-2xl font-semibold mb-2">2024: Call for Decentralization</h4>
+                        <p class="text-gray-700 mb-4">
+                            Recognizing the need for a fairer system, we propose a decentralized model leveraging blockchain technology.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Aims to eliminate veto power and promote equal representation.</li>
+                            <li>Seeks to enhance transparency and accountability in global governance.</li>
+                            <li>Utilizes technology to facilitate efficient and secure decision-making.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 md:order-1 text-center">
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full mx-auto flex items-center justify-center mb-4">
+                            <span class="font-bold">2024</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- End Timeline Component -->
         </div>
-    </section>
+        <!-- End Timeline Component -->
+    </div>
+</section>
+
 
     <!-- Petition Counter -->
     <section class="bg-white py-12">
@@ -152,33 +173,24 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-12 text-center">
-                <a href="#research" class="text-blue-600 font-semibold text-lg sm:text-base hover:text-blue-700">Read the Full Research Paper</a>
-            </div>
+            
         </div>
     </section>
 
     <!-- Research Paper Section -->
     <section id="research" class="bg-white py-16">
         <div class="max-w-5xl mx-auto px-4">
-            <h3 class="text-4xl sm:text-3xl font-semibold text-gray-800 mb-8 text-center">Research Paper: A Case for Decentralization</h3>
+        <h3 class="text-4xl sm:text-3xl font-semibold text-gray-800 mb-8 text-center">Collaborate on the Research Paper</h3>
             <div class="text-lg sm:text-base text-gray-700 leading-relaxed space-y-6">
-                <p>Our comprehensive research paper explores the historical context of international governance, the shortcomings of the current UN structure, and how blockchain technology can address these issues.</p>
-                <p>Key highlights include:</p>
-                <ul class="list-disc list-inside space-y-2">
-                    <li>Analysis of the League of Nations and its transition to the UN.</li>
-                    <li>Case studies on the UN's challenges in conflict resolution.</li>
-                    <li>An in-depth look at blockchain applications in governance.</li>
-                    <li>Practical steps toward implementing a Decentralized United Nations.</li>
-                </ul>
+                <p>We are developing a comprehensive research paper exploring the potential of a Decentralized United Nations. This is a collaborative effort, and we invite thinkers, experts, and passionate individuals like you to contribute.</p>
+                <p>Your insights can help shape a transformative vision for global governance. Whether you have expertise in international relations, blockchain technology, or simply a keen interest in the subject, your input is valuable.</p>
+                <p>Join us in signing the Petition and participating in our discussions platform. Your unique perspective and contributions are invaluable as we work together to create a research paper that can shape the future of global governance.</p>
             </div>
-            <div class="mt-8 text-center">
-                <a href="{{ asset('pdfs/research-paper.pdf') }}" target="_blank" class="bg-blue-600 text-white px-10 py-4 rounded-full text-lg sm:text-base font-semibold hover:bg-blue-700 transition duration-300">Download the Research Paper</a>
-            </div>
+    
         </div>
     </section>
 
- 
+   
 
     <!-- Sign the Petition -->
     <section id="sign" class="bg-white py-16">
