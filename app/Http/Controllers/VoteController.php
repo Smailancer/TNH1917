@@ -15,9 +15,10 @@ class VoteController extends Controller
 
     public function show(Vote $vote): View
     {
-        // Additional logic to check if the user can view this vote, e.g., ownership check
+        // Check if the user can view this vote
         if (!$this->canUserViewVote($vote)) {
-            return redirect()->back()->withErrors('You are not allowed to view this vote.');
+            // Instead of redirecting, you can throw an exception or return a specific view
+            abort(403, 'You are not allowed to view this vote.');
         }
 
         return view('votes.show', compact('vote'));

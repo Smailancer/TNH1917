@@ -4,7 +4,15 @@
             {{ __('Decentralized United Nations') }}
         </h2>
     </x-slot>
-
+    @if ($errors->any())
+                <div class="bg-red-500 text-white p-4 rounded-lg mb-6">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-blue-500 to-teal-500 py-16 text-center text-white">
         <div class="max-w-5xl mx-auto px-4">
