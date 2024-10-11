@@ -64,8 +64,6 @@
 
     <div class="address">
         <p>To: The Ambassador of {{ $vote->country->name }}</p>
-        <p>Embassy Address</p>
-        <p>City, Country</p>
     </div>
 
     <div class="letter-body">

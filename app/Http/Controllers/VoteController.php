@@ -170,8 +170,8 @@ class VoteController extends Controller
      */
     protected function canUserViewVote(Vote $vote)
     {
-        // Implement your logic here, e.g., check if the user owns the vote
-        return auth()->user()->id === $vote->user_id;
+        // Cast both IDs to integers for comparison
+        return auth()->user()->id == $vote->user_id;
     }
     /**
      * Check if the user can update the vote.

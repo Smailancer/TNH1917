@@ -24,7 +24,7 @@
 
             <!-- Decision Frequency Chart -->
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                <h3 class="text-lg font-medium text-gray-900 mb-4">Frequency of Decisions</h3>
+                <h3 class="text-lg font-medium text-gray-900 mb-4">Frequency of Decisions made with Indigenous People</h3>
                 @livewire('decision-frequency-chart')
             </div>
         </div>

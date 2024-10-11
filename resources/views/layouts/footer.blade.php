@@ -55,7 +55,7 @@
     </svg>
 </a>
 
-                <a href="mailto:tnh1917.com@gmail.com" class="text-gray-500 hover:text-gray-900">
+                <a href="mailto:balfour@tnh1917.com" class="text-gray-500 hover:text-gray-900">
 
                     <!-- With this -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

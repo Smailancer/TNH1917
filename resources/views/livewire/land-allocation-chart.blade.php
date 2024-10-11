@@ -114,8 +114,8 @@
 
                     // Add message for users to vote
                     const message = document.createElement('div');
-                    message.innerHTML = '<span class="text-red-600 font-bold">Please login and vote to view the statistics.</span>';
-                    message.classList.add('text-center', 'mt-4');
+                    message.innerHTML = '<span class="font-bold text-lg text-red-600">Please login and vote to view the statistics.</span>';
+                    message.classList.add('bg-red-100', 'border', 'border-red-400', 'text-red-700', 'px-4', 'py-2', 'rounded', 'shadow-md', 'text-center', 'mt-4');
                     document.querySelector("#combined-chart").insertAdjacentElement('beforebegin', message);
                 }
             } catch (error) {
