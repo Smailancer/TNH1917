@@ -16,7 +16,7 @@
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-blue-500 to-teal-500 py-16 text-center text-white">
         <div class="max-w-5xl mx-auto px-4">
-            <h1 class="text-5xl sm:text-4xl font-extrabold mb-6">Recreate Global Governance with Decentralization</h1>
+            <h1 class="text-5xl sm:text-4xl font-extrabold mb-6">The largest petition to restructure the United Nations towards decentralization</h1>
             <p class="text-xl sm:text-base mb-8">Join millions in advocating for a transparent, fair, and decentralized United Nations that empowers all nations equally.</p>
             <a href="#sign" class="bg-white text-blue-600 px-10 py-4 rounded-full text-xl sm:text-base font-semibold hover:bg-gray-100 transition duration-300">Sign the Petition</a>
         </div>
@@ -100,13 +100,22 @@
     <!-- Petition Counter -->
     <section class="bg-white py-12">
         <div class="max-w-5xl mx-auto text-center px-4">
-            <h3 class="text-3xl sm:text-2xl font-semibold text-gray-800 mb-6">Global Support Growing</h3>
+            <h3 class="text-3xl sm:text-2xl font-semibold text-gray-800 mb-6">Petition Signature Count</h3>
             <div class="text-6xl sm:text-4xl font-bold text-blue-600 mb-4">{{ number_format($signatureCount) }}</div>
-            <p class="text-gray-700 text-lg mb-6">People have signed this petition from <span class="font-semibold">{{ $countryCount }}</span> countries.</p>
+            <p class="text-gray-700 text-lg mb-6">Signatures from <span class="font-semibold">{{ $countryCount }}</span> countries.</p>
             <div class="relative w-full h-4 bg-gray-200 rounded-full overflow-hidden mb-4">
                 <div class="absolute top-0 left-0 h-full bg-blue-600 rounded-full" style="width: {{ $progress }}%;"></div>
             </div>
-            <p class="text-gray-700 text-lg">Help us reach our goal of 10 million signatures!</p>
+            <p class="text-gray-700 text-lg font-bold">Join us in reaching <span class="text-black-400 text-2xl">10 MILLION</span> signatures!</p>
+        </div>
+    </section>
+
+     <!-- Footer Call to Action -->
+     <section class="bg-blue-600 py-12 text-center text-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <h3 class="text-3xl sm:text-2xl font-semibold mb-4">Ready to Make a Difference?</h3>
+            <p class="text-lg sm:text-base mb-6">Your signature can help reshape global governance. Stand with us in advocating for a decentralized future.</p>
+            <a href="#sign" class="bg-white text-blue-600 px-10 py-4 rounded-full text-lg sm:text-base font-semibold hover:bg-gray-100 transition duration-300">Sign the Petition Now</a>
         </div>
     </section>
 
@@ -185,20 +194,7 @@
         </div>
     </section>
 
-    <!-- Research Paper Section -->
-    <section id="research" class="bg-white py-16">
-        <div class="max-w-5xl mx-auto px-4">
-        <h3 class="text-4xl sm:text-3xl font-semibold text-gray-800 mb-8 text-center">Collaborate on the Research Paper</h3>
-            <div class="text-lg sm:text-base text-gray-700 leading-relaxed space-y-6">
-                <p>We are developing a comprehensive research paper exploring the potential of a Decentralized United Nations. This is a collaborative effort, and we invite thinkers, experts, and passionate individuals like you to contribute.</p>
-                <p>Your insights can help shape a transformative vision for global governance. Whether you have expertise in international relations, blockchain technology, or simply a keen interest in the subject, your input is valuable.</p>
-                <p>Join us in signing the Petition and participating in our discussions platform. Your unique perspective and contributions are invaluable as we work together to create a research paper that can shape the future of global governance.</p>
-            </div>
-    
-        </div>
-    </section>
 
-   
 
     <!-- Sign the Petition -->
     <section id="sign" class="bg-white py-16">
@@ -208,19 +204,19 @@
             <form action="{{ route('petition.sign') }}" method="POST" class="max-w-xl mx-auto bg-gray-100 p-8 rounded-lg shadow-md">
                 @csrf
                 <div class="mb-6">
-                    <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                    <input type="text" name="name" placeholder="Enter Your Full Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-500" required/>
                     @error('name')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-6">
-                    <input type="email" name="email" placeholder="Your Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                    <input type="email" name="email" placeholder="Enter Your Email Address" class="w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-500" required/>
                     @error('email')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-6">
-                    <select name="country_id" class="w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <select name="country_id" class="w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                         <option value="" disabled selected>Select Your Country</option>
                         @foreach ($countries as $country)
                             <option value="{{ $country->id }}">{{ $country->name }}</option>
@@ -240,6 +236,21 @@
                     <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300">Sign Now</button>
                 </div>
             </form>
+        </div>
+    </section>
+
+        <!-- Research Paper Section -->
+        <section id="research" class="bg-gray-50 py-16">
+        <div class="max-w-5xl mx-auto px-4">
+        <h3 class="text-4xl sm:text-3xl font-semibold text-gray-800 mb-8 text-center">Whats Next ?</h3>
+            <div class="text-lg sm:text-base text-gray-700 leading-relaxed space-y-6">
+                <p>We are developing a comprehensive research paper exploring the potential of a Decentralized United Nations. This is a collaborative effort, and we invite thinkers, experts, and passionate individuals like you to contribute.</p>
+                <p>Your insights can help shape a transformative vision for global governance. Whether you have expertise in international relations, blockchain technology, or simply a keen interest in the subject, your input is valuable.</p>
+                <p>Join us in signing the Petition and participating in our discussions platform. Your unique perspective and contributions are invaluable as we work together to create a research paper that can shape the future of global governance.</p>
+            </div>
+            <div class="text-center mt-8">
+                <a href="https://forum.tnh1917.com/t/decentralized-united-nations" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300">Collaborate on the Research Paper                </a>
+            </div>
         </div>
     </section>
 
@@ -277,13 +288,6 @@
     </section>
     --}}
 
-    <!-- Footer Call to Action -->
-    <section class="bg-blue-600 py-12 text-center text-white">
-        <div class="max-w-5xl mx-auto px-4">
-            <h3 class="text-3xl sm:text-2xl font-semibold mb-4">Ready to Make a Difference?</h3>
-            <p class="text-lg sm:text-base mb-6">Your signature can help reshape global governance. Stand with us in advocating for a decentralized future.</p>
-            <a href="#sign" class="bg-white text-blue-600 px-10 py-4 rounded-full text-lg sm:text-base font-semibold hover:bg-gray-100 transition duration-300">Sign the Petition Now</a>
-        </div>
-    </section>
+   
 
 </x-app-layout>

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Models\Country;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -22,11 +23,12 @@ class UserFactory extends Factory
     public function definition(): array
     {
         $name = $this->faker->name();
-        $username = $this->generateUniqueUsername(); // Generate a unique username
+        // $username = $this->generateUniqueUsername(); // Generate a unique username
 
         return [
             'name' => $name,
-            'username' => $username,
+            // 'username' => $username,
+            'country_id' => Country::where('code', '!=', 'NIL')->inRandomOrder()->first()->id,
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
@@ -39,31 +41,31 @@ class UserFactory extends Factory
      *
      * @return string
      */
-   private function generateUniqueUsername(): string
-    {
-        $prefix = 'Balfour_';
+//    private function generateUniqueUsername(): string
+//     {
+//         $prefix = 'Balfour_';
 
-        // Generate a random string of digits for the username
-        $randomDigits = '';
-        for ($i = 0; $i < 5; $i++) {
-            $randomDigits .= mt_rand(0, 9);
-        }
+//         // Generate a random string of digits for the username
+//         $randomDigits = '';
+//         for ($i = 0; $i < 5; $i++) {
+//             $randomDigits .= mt_rand(0, 9);
+//         }
 
-        $username = $prefix . $randomDigits; // Concatenate the random digits to the prefix
+//         $username = $prefix . $randomDigits; // Concatenate the random digits to the prefix
 
-        // Check if the generated username already exists in the database
-        while (User::where('username', $username)->exists()) {
-            // Regenerate a new random string of digits
-            $randomDigits = '';
-            for ($i = 0; $i < 5; $i++) {
-                $randomDigits .= mt_rand(0, 9);
-            }
+//         // Check if the generated username already exists in the database
+//         while (User::where('username', $username)->exists()) {
+//             // Regenerate a new random string of digits
+//             $randomDigits = '';
+//             for ($i = 0; $i < 5; $i++) {
+//                 $randomDigits .= mt_rand(0, 9);
+//             }
 
-            $username = $prefix . $randomDigits; // Generate a new username
-        }
+//             $username = $prefix . $randomDigits; // Generate a new username
+//         }
 
-        return $username;
-    }
+//         return $username;
+//     }
 
 
     /**

@@ -177,6 +177,162 @@
                     </p>
                 </details>
             </div>
+
+<!-- Card 12 -->
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <h2 class="font-semibold text-2xl mb-4 text-gray-800">The U.S. Acts Independently of Lobby Influence</h2>
+    <p class="text-gray-600 mb-4">The myth that U.S. foreign policy towards Israel is purely based on national interest and not influenced by advocacy groups.</p>
+    <details class="group">
+        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+            <span class="text-lg text-gray-900">The Fact</span>
+            <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+        </summary>
+        <p class="text-gray-700 mt-3 group-open:animate-fadeIn">
+            The Israel Lobby exerts significant influence over U.S. foreign policy, often prioritizing Israeli interests. This influence can lead to policies that may not always align with broader U.S. national interests or public opinion.
+        </p>
+    </details>
+</div>
+
+
+<!-- Card 13 -->
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <h2 class="font-semibold text-2xl mb-4 text-gray-800">Israel Promotes Peace through Settlement Expansion</h2>
+    <p class="text-gray-600 mb-4">The myth that building settlements in the West Bank is a gesture towards peace and coexistence.</p>
+    <details class="group">
+        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+            <span class="text-lg text-gray-900">The Fact</span>
+            <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+        </summary>
+        <p class="text-gray-700 mt-3 group-open:animate-fadeIn">
+            Settlement expansion in the West Bank undermines peace efforts by fragmenting Palestinian territories and making the viability of a contiguous Palestinian state increasingly unfeasible. This expansion is viewed by many as a means to assert control rather than promote peace.
+        </p>
+    </details>
+</div>
+
+
+<!-- Card 14 -->
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <h2 class="font-semibold text-2xl mb-4 text-gray-800">Israel Prioritizes Security Over Human Rights</h2>
+    <p class="text-gray-600 mb-4">The myth that all Israeli security measures are purely for protection without infringing on Palestinian human rights.</p>
+    <details class="group">
+        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+            <span class="text-lg text-gray-900">The Fact</span>
+            <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+        </summary>
+        <p class="text-gray-700 mt-3 group-open:animate-fadeIn">
+            Israeli security measures, including checkpoints, the separation barrier, and military operations, often result in significant restrictions on Palestinian movement, economic hardship, and violations of human rights, indicating a prioritization of security over the well-being of Palestinians.
+        </p>
+    </details>
+</div>
+
+
+<!-- Card 19 -->
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <h2 class="font-semibold text-2xl mb-4 text-gray-800">Western Media Objectively Covers the Israeli-Palestinian Conflict</h2>
+    <p class="text-gray-600 mb-4">The myth that Western media provides unbiased and balanced coverage of the Israeli-Palestinian conflict.</p>
+    <details class="group">
+        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+            <span class="text-lg text-gray-900">The Fact</span>
+            <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+        </summary>
+        <p class="text-gray-700 mt-3 group-open:animate-fadeIn">
+            Western media often exhibits inherent biases, portraying Israel as the default victim and Palestinians as aggressors. This skewed representation influences public perception and undermines objective understanding of the conflict's complexities.
+        </p>
+    </details>
+</div>
+
+
+<!-- Card 23 -->
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <h2 class="font-semibold text-2xl mb-4 text-gray-800">Israel's Military Actions Are Proportionate and Necessary</h2>
+    <p class="text-gray-600 mb-4">The myth that all Israeli military actions are proportionate responses to threats and essential for security.</p>
+    <details class="group">
+        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+            <span class="text-lg text-gray-900">The Fact</span>
+            <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+        </summary>
+        <p class="text-gray-700 mt-3 group-open:animate-fadeIn">
+            Many Israeli military operations employ disproportionate force, leading to high civilian casualties and extensive destruction. These actions often go beyond necessary defense measures and contribute to escalating violence.
+        </p>
+    </details>
+</div>
+
+
+<!-- Card 30 -->
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <h2 class="font-semibold text-2xl mb-4 text-gray-800">Israel's Blockade on Gaza Is Humanitarian</h2>
+    <p class="text-gray-600 mb-4">The myth that Israel's blockade of Gaza is solely for security purposes and does not cause humanitarian suffering.</p>
+    <details class="group">
+        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+            <span class="text-lg text-gray-900">The Fact</span>
+            <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+        </summary>
+        <p class="text-gray-700 mt-3 group-open:animate-fadeIn">
+            The blockade severely restricts the movement of goods and people, leading to shortages of medical supplies, clean water, and essential services, exacerbating the humanitarian crisis in Gaza.
+        </p>
+    </details>
+</div>
+
+
+<!-- Card 32 -->
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <h2 class="font-semibold text-2xl mb-4 text-gray-800">Palestinians Do Not Desire Peace</h2>
+    <p class="text-gray-600 mb-4">The myth that Palestinians are unwilling to negotiate or make concessions for peace.</p>
+    <details class="group">
+        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+            <span class="text-lg text-gray-900">The Fact</span>
+            <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+        </summary>
+        <p class="text-gray-700 mt-3 group-open:animate-fadeIn">
+            Palestinians have engaged in numerous peace talks and negotiations, demonstrating a willingness to reach a peaceful resolution. However, continued settlement expansion and lack of genuine commitment from Israeli leaders have hindered meaningful progress.
+        </p>
+    </details>
+</div>
+
+
+<!-- Card 34 -->
+<div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <h2 class="font-semibold text-2xl mb-4 text-gray-800">Israel Does Not Target Civilians</h2>
+    <p class="text-gray-600 mb-4">The myth that Israel's military operations exclusively target combatants and do not intentionally harm civilians.</p>
+    <details class="group">
+        <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+            <span class="text-lg text-gray-900">The Fact</span>
+            <span class="transition group-open:rotate-180">
+                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+        </summary>
+        <p class="text-gray-700 mt-3 group-open:animate-fadeIn">
+            Israeli airstrikes and ground operations have frequently resulted in significant civilian casualties and destruction of civilian infrastructure, raising serious concerns about the intentional targeting of non-combatants.
+        </p>
+    </details>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
     </div>
 </x-app-layout>

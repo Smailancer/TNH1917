@@ -12,76 +12,41 @@
     <!-- Introduction Section -->
     <div class="text-center mb-8">
         <h1 class="text-3xl font-bold mb-4">Support Our Mission </h1>
-        <p>Your support enables us to continue our work. Choose your preferred way to contribute:</p>
+        <p>Contribute to the project to reveal the truth, end injustice and achieve justice.</p>
     </div>
 
-{{-- <!-- Direct Donations Section -->
-<div class="bg-gradient-to-b from-red-400 to-red-500 py-10 px-6 rounded-lg shadow-md text-center mb-6">
-    <div class="flex flex-col items-center">
-        <h2 class="text-2xl font-semibold text-white mb-4">Make a Direct Donation</h2>
-        <p class="text-lg text-white mb-4">Support our cause with a direct donation. Your contribution makes a significant impact!</p>
-
-        <!-- Donation Methods -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
-            <!-- PayPal -->
-            <div class="bg-white rounded-lg p-4">
-                <h3 class="text-xl font-semibold text-blue-500 mb-2">PayPal</h3>
-                <p class="text-gray-700">Donate securely via PayPal:</p>
-                <a href="https://www.paypal.com/donate?hosted_button_id=your_paypal_button_id" target="_blank" class="text-blue-500 hover:underline mt-4">Donate Now</a>
-            </div>
-
-            <!-- Stripe -->
-            <div class="bg-white rounded-lg p-4">
-                <h3 class="text-xl font-semibold text-gold-500 mb-2">Stripe</h3>
-                <p class="text-gray-700">Make a donation using your credit card:</p>
-                <a href="#" class="text-gold-500 hover:underline mt-4">Donate Now</a>
-            </div>
-
-            <!-- Bank Transfer -->
-            <div class="bg-white rounded-lg p-4">
-                <h3 class="text-xl font-semibold text-green-500 mb-2">Bank Transfer</h3>
-                <p class="text-gray-700">Contribute directly to our bank account:</p>
-                <button class="text-green-500 hover:underline mt-4 copy-button">Copy Account Details</button>
-            </div>
-        </div>
-
-        <p class="text-white text-sm">Your support is greatly appreciated. Thank you for making a difference!</p>
-    </div>
-</div> --}}
-
-
-<!-- Cryptocurrency Donations Section -->
-<div x-data="{ copied: false, copiedText: '' }" class="bg-gradient-to-b from-stone-400 to-stone-500 py-10 px-6 rounded-lg shadow-md text-center mb-6">
-    <div class="flex flex-col items-center">
-        <h2 class="text-2xl font-semibold text-white mb-4">Support Us with Cryptocurrency</h2>
-        <p class="text-lg text-white mb-4">Make a cryptocurrency donation to help us grow. Your support is highly appreciated!</p>
-
-        <!-- Cryptocurrency Wallet Addresses -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
-            <!-- Bitcoin -->
-            <div class="bg-white rounded-lg p-4">
-                <h3 class="text-xl font-semibold text-amber-500 mb-2">Bitcoin (BTC)</h3>
-                <p x-ref="btcAddress" class="text-gray-700 break-words">bc1qzh7vpg84gw9ggrx0gyd02cvyt95lxndr7aw8l6</p>
-                <img src="images/BTC.png" alt="Bitcoin QR Code" class="w-24 h-24 mx-auto mt-4">
-                <button @click="navigator.clipboard.writeText($refs.btcAddress.textContent).then(() => { copied = true; copiedText = 'BTC'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-amber-500 hover:underline mt-4" x-text="copied && copiedText === 'BTC' ? 'Copied to Clipboard' : 'Copy Address'"></button>
-            </div>
-
-            <!-- Ethereum -->
-            <div class="bg-white rounded-lg p-4">
-                <h3 class="text-xl font-semibold text-slate-400 mb-2">Ethereum (ETH)</h3>
-                <p x-ref="ethAddress" class="text-gray-700 break-words">0xAaec23D5c9BaDE604fA89201b83717bddcd87A95</p>
-                <img src="images/ETH.png" alt="Ethereum QR Code" class="w-24 h-24 mx-auto mt-4">
-                <button @click="navigator.clipboard.writeText($refs.ethAddress.textContent).then(() => { copied = true; copiedText = 'ETH'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-slate-400 hover:underline mt-4" x-text="copied && copiedText === 'ETH' ? 'Copied to Clipboard' : 'Copy Address'"></button>
-            </div>
-
-            <!-- USDT -->
-            <div class="bg-white rounded-lg p-4">
-                <h3 class="text-xl font-semibold text-cyan-500 mb-2">Tether USD (USDT)</h3>
+    
+    
+    <!-- Cryptocurrency Donations Section -->
+    <div x-data="{ copied: false, copiedText: '' }" class="bg-gradient-to-b from-stone-400 to-stone-500 py-10 px-6 rounded-lg shadow-md text-center mb-6">
+        <div class="flex flex-col items-center">
+            
+            <!-- Cryptocurrency Wallet Addresses -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
+                <!-- Bitcoin -->
+                <div class="bg-white rounded-lg p-4">
+                    <h3 class="text-xl font-semibold text-amber-500 mb-2">Bitcoin (BTC)</h3>
+                    <p x-ref="btcAddress" class="text-gray-700 break-words">bc1qzh7vpg84gw9ggrx0gyd02cvyt95lxndr7aw8l6</p>
+                    <img src="images/BTC.png" alt="Bitcoin QR Code" class="w-24 h-24 mx-auto mt-4">
+                    <button @click="navigator.clipboard.writeText($refs.btcAddress.textContent).then(() => { copied = true; copiedText = 'BTC'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-amber-500 hover:underline mt-4" x-text="copied && copiedText === 'BTC' ? 'Copied to Clipboard' : 'Copy Address'"></button>
+                </div>
+                
+                <!-- Ethereum -->
+                <div class="bg-white rounded-lg p-4">
+                    <h3 class="text-xl font-semibold text-slate-400 mb-2">Ethereum (ETH)</h3>
+                    <p x-ref="ethAddress" class="text-gray-700 break-words">0xAaec23D5c9BaDE604fA89201b83717bddcd87A95</p>
+                    <img src="images/ETH.png" alt="Ethereum QR Code" class="w-24 h-24 mx-auto mt-4">
+                    <button @click="navigator.clipboard.writeText($refs.ethAddress.textContent).then(() => { copied = true; copiedText = 'ETH'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-slate-400 hover:underline mt-4" x-text="copied && copiedText === 'ETH' ? 'Copied to Clipboard' : 'Copy Address'"></button>
+                </div>
+                
+                <!-- USDT -->
+                <div class="bg-white rounded-lg p-4">
+                    <h3 class="text-xl font-semibold text-cyan-500 mb-2">Tether USD (USDT)</h3>
                 <p x-ref="usdtAddress" class="text-gray-700 break-words">0xAaec23D5c9BaDE604fA89201b83717bddcd87A95</p>
                 <img src="images/USDT.png" alt="Tether USD QR Code" class="w-24 h-24 mx-auto mt-4">
                 <button @click="navigator.clipboard.writeText($refs.usdtAddress.textContent).then(() => { copied = true; copiedText = 'USDT'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-cyan-500 hover:underline mt-4" x-text="copied && copiedText === 'USDT' ? 'Copied to Clipboard' : 'Copy Address'"></button>
             </div>
-
+            
             <!-- Litecoin -->
             <div class="bg-white rounded-lg p-4">
                 <h3 class="text-xl font-semibold text-neutral-500 mb-2">Litecoin (LTC)</h3>
@@ -89,7 +54,7 @@
                 <img src="images/LTC.png" alt="Litecoin QR Code" class="w-24 h-24 mx-auto mt-4">
                 <button @click="navigator.clipboard.writeText($refs.ltcAddress.textContent).then(() => { copied = true; copiedText = 'LTC'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-neutral-500 hover:underline mt-4" x-text="copied && copiedText === 'LTC' ? 'Copied to Clipboard' : 'Copy Address'"></button>
             </div>
-
+            
             <!-- Solana -->
             <div class="bg-white rounded-lg p-4">
                 <h3 class="text-xl font-semibold text-violet-500 mb-2">Solana (SOL)</h3>
@@ -97,7 +62,7 @@
                 <img src="images/SOL.png" alt="Solana QR Code" class="w-24 h-24 mx-auto mt-4">
                 <button @click="navigator.clipboard.writeText($refs.solAddress.textContent).then(() => { copied = true; copiedText = 'SOL'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-violet-500 hover:underline mt-4" x-text="copied && copiedText === 'SOL' ? 'Copied to Clipboard' : 'Copy Address'"></button>
             </div>
-
+            
             <!-- USD Coin -->
             <div class="bg-white rounded-lg p-4">
                 <h3 class="text-xl font-semibold text-sky-500 mb-2">USD Coin (USDC)</h3>
@@ -106,13 +71,47 @@
                 <button @click="navigator.clipboard.writeText($refs.usdcAddress.textContent).then(() => { copied = true; copiedText = 'USDC'; setTimeout(() => { copied = false; copiedText = ''; }, 2000); })" class="text-sky-500 hover:underline mt-4" x-text="copied && copiedText === 'USDC' ? 'Copied to Clipboard' : 'Copy Address'"></button>
             </div>
         </div>
-
-        <p class="text-white text-sm">Don't forget to double-check the currency and address before making a donation.</p>
+        
+        <p class="text-white text-sm mb-2">⚠️ <strong>Important:</strong> Please ensure you are sending the correct cryptocurrency to the corresponding address. Transactions are irreversible.</p>
+        <p class="text-white text-sm">🔒 All donations are securely processed and used exclusively for supporting our mission. Thank you for your generosity and support!</p>
     </div>
 </div>
 
 
 {{--
+    <!-- Direct Donations Section -->
+    <div class="bg-gradient-to-b from-red-400 to-red-500 py-10 px-6 rounded-lg shadow-md text-center mb-6">
+        <div class="flex flex-col items-center">
+            <h2 class="text-2xl font-semibold text-white mb-4">Make a Direct Donation</h2>
+            <p class="text-lg text-white mb-4">Support our cause with a direct donation. Your contribution makes a significant impact!</p>
+    
+            <!-- Donation Methods -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
+                <!-- PayPal -->
+                <div class="bg-white rounded-lg p-4">
+                    <h3 class="text-xl font-semibold text-blue-500 mb-2">PayPal</h3>
+                    <p class="text-gray-700">Donate securely via PayPal:</p>
+                    <a href="https://www.paypal.com/donate?hosted_button_id=your_paypal_button_id" target="_blank" class="text-blue-500 hover:underline mt-4">Donate Now</a>
+                </div>
+    
+                <!-- Stripe -->
+                <div class="bg-white rounded-lg p-4">
+                    <h3 class="text-xl font-semibold text-gold-500 mb-2">Stripe</h3>
+                    <p class="text-gray-700">Make a donation using your credit card:</p>
+                    <a href="#" class="text-gold-500 hover:underline mt-4">Donate Now</a>
+                </div>
+    
+                <!-- Bank Transfer -->
+                <div class="bg-white rounded-lg p-4">
+                    <h3 class="text-xl font-semibold text-green-500 mb-2">Bank Transfer</h3>
+                    <p class="text-gray-700">Contribute directly to our bank account:</p>
+                    <button class="text-green-500 hover:underline mt-4 copy-button">Copy Account Details</button>
+                </div>
+            </div>
+    
+            <p class="text-white text-sm">Your support is greatly appreciated. Thank you for making a difference!</p>
+        </div>
+    </div> 
 <!-- Membership/Subscriptions Section -->
 <div class="bg-gradient-to-b from-blue-400 to-blue-500 py-10 px-6 rounded-lg shadow-md text-center mb-6">
     <div class="flex flex-col items-center">

@@ -19,7 +19,7 @@
 
         <div>
             <x-input-label for="username" :value="__('Your New Username')" />
-            <x-text-input id="username" name="username" type="text" class="mt-1 block w-full bg-gray-200" :value="old('username', $user->username)" required autocomplete="username" readonly  disabled/>
+            <x-text-input id="username" name="username" type="text" class="mt-1 block w-full bg-gray-200" :value="old('username', $user->username)" required autocomplete="username" readonly disabled/>
             <x-input-error class="mt-2" :messages="$errors->get('username')" />
         </div>
 
@@ -33,24 +33,19 @@
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="email" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
+        </div>
 
-            @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                <div>
-                    <p class="text-sm mt-2 text-gray-800">
-                        {{ __('Your email address is unverified.') }}
-
-                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            {{ __('Click here to re-send the verification email.') }}
-                        </button>
-                    </p>
-
-                    @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600">
-                            {{ __('A new verification link has been sent to your email address.') }}
-                        </p>
-                    @endif
-                </div>
-            @endif
+        <div>
+            <x-input-label for="country_id" :value="__('Country')" />
+            <select id="country_id" name="country_id" class="mt-1 block w-full">
+                <option value="" disabled selected>Select your country</option>
+                @foreach ($countries as $country)
+                    <option value="{{ $country->id }}" {{ old('country_id', $user->country_id) == $country->id ? 'selected' : '' }}>
+                        {{ $country->name }}
+                    </option>
+                @endforeach
+            </select>
+            <x-input-error class="mt-2" :messages="$errors->get('country_id')" />
         </div>
 
         <div class="flex items-center gap-4">
