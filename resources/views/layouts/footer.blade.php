@@ -24,9 +24,9 @@
                         <li class="mb-4">
                             <a href="/Discussions" class="hover:underline ">Discussions</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="/Support" class="hover:underline">Support Us</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <div>
