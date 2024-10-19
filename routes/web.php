@@ -144,10 +144,10 @@ Route::post('/subscribe', [NewsletterController::class, 'store']);
 
 Route::get('/votes/{vote}/download', [VoteController::class, 'downloadPdf'])->name('votes.downloadPdf');
 
-Route::get('/test-pdf-view', function () {
-    $vote = App\Models\Vote::find(51); // Replace with an actual vote ID
-    return view('votes.pdf', compact('vote'));
-});
+// Route::get('/test-pdf-view', function () {
+//     $vote = App\Models\Vote::find(51); 
+//     return view('votes.pdf', compact('vote'));
+// });
 
 Route::get('/dun', [PetitionController::class, 'index'])->name('petition.index');
 Route::post('/dun/sign', [PetitionController::class, 'sign'])->name('petition.sign');
